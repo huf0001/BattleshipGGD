@@ -14,7 +14,7 @@ Module DeploymentController
     Private Const TOP_BUTTONS_HEIGHT As Integer = 46
 
     Private Const PLAY_BUTTON_LEFT As Integer = 693
-    Private Const PLAY_BUTTON_WIDTH As Integer = 80    
+    Private Const PLAY_BUTTON_WIDTH As Integer = 80
 
     Private Const UP_DOWN_BUTTON_LEFT As Integer = 410
     Private Const LEFT_RIGHT_BUTTON_LEFT As Integer = 350
@@ -89,7 +89,7 @@ Module DeploymentController
 
         'Calculate the row/col clicked
         Dim row, col As Integer
-        row = Convert.ToInt32(Math.Floor((mouse.Y) / (CELL_HEIGHT + CELL_GAP)))
+        row = Convert.ToInt32(Math.Floor((mouse.Y - FIELD_TOP) / (CELL_HEIGHT + CELL_GAP)))
         col = Convert.ToInt32(Math.Floor((mouse.X - FIELD_LEFT) / (CELL_WIDTH + CELL_GAP)))
 
         If row >= 0 And row < HumanPlayer.PlayerGrid.Height Then

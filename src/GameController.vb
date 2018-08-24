@@ -42,7 +42,7 @@ Public Module GameController
     ''' Returns the computer player.
     ''' </summary>
     ''' <value>the computer player</value>
-    ''' <returns>the conputer player</returns>
+    ''' <returns>the computer player</returns>
     Public ReadOnly Property ComputerPlayer() As Player
         Get
             Return _ai
