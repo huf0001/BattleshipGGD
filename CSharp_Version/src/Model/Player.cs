@@ -3,6 +3,7 @@
 /// ''' all ships are deployed and if all ships are detroyed. A Player can also attach.
 /// ''' </summary>
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -200,7 +201,7 @@ public class Player : IEnumerable<Ship>
     ///     ''' has.
     ///     ''' </summary>
     ///     ''' <returns>A Ship enumerator</returns>
-    public IEnumerator GetEnumerator()
+    public IEnumerator/*<Ship>*/ GetEnumerator()
     {
         Ship[] result = new Ship[_Ships.Values.Count + 1];
         _Ships.Values.CopyTo(result, 0);

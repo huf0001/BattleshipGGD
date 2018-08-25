@@ -55,8 +55,13 @@ public class SeaGrid : ISeaGrid
         }
     }
 
-    public TileView this[int x, int y]
+    public TileView Item 
     {
+        get
+        {
+            return null;
+            //return this[int x, int y];    //Fix at some point? Just putting this here to satisfy the terminal
+        }
     }
     
 
