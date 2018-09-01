@@ -17,7 +17,6 @@ using Microsoft.VisualBasic;
 
 public abstract class AIPlayer : Player
 {
-
     /// <summary>
     ///     ''' Location can store the location of the last hit made by an
     ///     ''' AI Player. The use of which determines the difficulty.
@@ -72,6 +71,8 @@ public abstract class AIPlayer : Player
             _Row = row;
         }
 
+
+
         /// <summary>
         ///         ''' Check if two locations are equal
         ///         ''' </summary>
@@ -93,8 +94,30 @@ public abstract class AIPlayer : Player
         {
             return @this == null || other == null || @this.Row != other.Row || @this.Column != other.Column;
         }
-    }
 
+        public override bool Equals(Object other)
+        {
+            if (other != null)
+            {
+                Location temp = other as Location;
+
+                if (temp != null)
+                { 
+                    if ((Row == other.Row) && (Column == other.Column))
+                    {
+                        return true; 
+                    }
+                }
+
+                return false;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+    }
 
     public AIPlayer(BattleShipsGame game) : base(game)
     {
