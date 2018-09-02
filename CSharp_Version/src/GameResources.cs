@@ -271,30 +271,26 @@ public static class GameResources
 
     private static void FreeFonts()
     {
-        Font obj;
-        foreach (var obj in _Fonts.Values)
-            SwinGame.FreeFont(obj);
+        foreach (Font f in _Fonts.Values)
+            SwinGame.FreeFont(f);
     }
 
     private static void FreeImages()
     {
-        Bitmap obj;
-        foreach (var obj in _Images.Values)
-            SwinGame.FreeBitmap(obj);
+        foreach (Bitmap b in _Images.Values)
+            SwinGame.FreeBitmap(b);
     }
 
     private static void FreeSounds()
     {
-        SoundEffect obj;
-        foreach (var obj in _Sounds.Values)
-            Audio.FreeSoundEffect(obj);
+        foreach (SoundEffect s in _Sounds.Values)
+            Audio.FreeSoundEffect(s);
     }
 
     private static void FreeMusic()
     {
-        Music obj;
-        foreach (var obj in _Music.Values)
-            Audio.FreeMusic(obj);
+        foreach (Music m in _Music.Values)
+            Audio.FreeMusic(m);
     }
 
     public static void FreeResources()

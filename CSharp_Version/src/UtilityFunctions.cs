@@ -141,39 +141,39 @@ static class UtilityFunctions
 
                 switch (grid.Item(row, col))
                 {
-                    case object _ when TileView.Ship:
-                        {
+                    case TileView.Ship:
+                    {
+                        draw = false;
+                        break;
+                    }
+
+                    case TileView.Miss:
+                    {
+                        if (small)
+                            fillColor = SMALL_MISS;
+                        else
+                            fillColor = LARGE_MISS;
+                        break;
+                    }
+
+                    case TileView.Hit:
+                    {
+                        if (small)
+                            fillColor = SMALL_HIT;
+                        else
+                            fillColor = LARGE_HIT;
+                        break;
+                    }
+
+                    case TileView.Sea:
+                    case TileView.Ship:
+                    {
+                        if (small)
+                            fillColor = SMALL_SEA;
+                        else
                             draw = false;
-                            break;
-                        }
-
-                    case object _ when TileView.Miss:
-                        {
-                            if (small)
-                                fillColor = SMALL_MISS;
-                            else
-                                fillColor = LARGE_MISS;
-                            break;
-                        }
-
-                    case object _ when TileView.Hit:
-                        {
-                            if (small)
-                                fillColor = SMALL_HIT;
-                            else
-                                fillColor = LARGE_HIT;
-                            break;
-                        }
-
-                    case object _ when TileView.Sea:
-                    case object _ when TileView.Ship:
-                        {
-                            if (small)
-                                fillColor = SMALL_SEA;
-                            else
-                                draw = false;
-                            break;
-                        }
+                        break;
+                    }
                 }
 
                 if (draw)
@@ -215,6 +215,7 @@ static class UtilityFunctions
 
             if (!small)
                 SwinGame.DrawBitmap(GameImage(shipName), colLeft, rowTop);
+                // SwinGame.DrawBitmap(shipName, colLeft, rowTop);
             else
             {
                 SwinGame.FillRectangle(SHIP_FILL_COLOR, colLeft, rowTop, shipWidth, shipHeight);
@@ -257,33 +258,33 @@ static class UtilityFunctions
     {
         switch (CurrentState)
         {
-            case object _ when GameState.ViewingMainMenu:
-            case object _ when GameState.ViewingGameMenu:
-            case object _ when GameState.AlteringSettings:
-            case object _ when GameState.ViewingHighScores:
-                {
-                    SwinGame.DrawBitmap(GameImage("Menu"), 0, 0);
-                    break;
-                }
+            case GameState.ViewingMainMenu:
+            case GameState.ViewingGameMenu:
+            case GameState.AlteringSettings:
+            case GameState.ViewingHighScores:
+            {
+                SwinGame.DrawBitmap(GameImage("Menu"), 0, 0);
+                break;
+            }
 
-            case object _ when GameState.Discovering:
-            case object _ when GameState.EndingGame:
-                {
-                    SwinGame.DrawBitmap(GameImage("Discovery"), 0, 0);
-                    break;
-                }
+            case GameState.Discovering:
+            case GameState.EndingGame:
+            {
+                SwinGame.DrawBitmap(GameImage("Discovery"), 0, 0);
+                break;
+            }
 
-            case object _ when GameState.Deploying:
-                {
-                    SwinGame.DrawBitmap(GameImage("Deploy"), 0, 0);
-                    break;
-                }
+            case GameState.Deploying:
+            {
+                SwinGame.DrawBitmap(GameImage("Deploy"), 0, 0);
+                break;
+            }
 
             default:
-                {
-                    SwinGame.ClearScreen();
-                    break;
-                }
+            {
+                SwinGame.ClearScreen();
+                break;
+            }
         }
 
         SwinGame.DrawFramerate(675, 585);
@@ -326,7 +327,7 @@ static class UtilityFunctions
         foreach (Sprite s in _Animations)
         {
             SwinGame.UpdateSprite(s);
-            if (s.animationHasEnded)
+            if (s.AnimationHasEnded)
                 ended.Add(s);
         }
 

@@ -197,29 +197,29 @@ public class AIHardPlayer : AIPlayer
     {
         switch (result.Value)
         {
-            case object _ when ResultOfAttack.Miss:
-                {
-                    _CurrentTarget = null;
-                    break;
-                }
+            case ResultOfAttack.Miss:
+            {
+                _CurrentTarget = null;
+                break;
+            }
 
-            case object _ when ResultOfAttack.Hit:
-                {
-                    ProcessHit(row, col);
-                    break;
-                }
+            case ResultOfAttack.Hit:
+            {
+                ProcessHit(row, col);
+                break;
+            }
 
-            case object _ when ResultOfAttack.Destroyed:
-                {
-                    ProcessDestroy(row, col, result.Ship);
-                    break;
-                }
+            case ResultOfAttack.Destroyed:
+            {
+                ProcessDestroy(row, col, result.Ship);
+                break;
+            }
 
-            case object _ when ResultOfAttack.ShotAlready:
-                {
-                    throw new ApplicationException("Error in AI");
-                    break;
-                }
+            case ResultOfAttack.ShotAlready:
+            {
+                throw new ApplicationException("Error in AI");
+                break;
+            }
         }
 
         if (_Targets.Count == 0)

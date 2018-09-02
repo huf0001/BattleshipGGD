@@ -3,7 +3,6 @@
 /// ''' all ships are deployed and if all ships are detroyed. A Player can also attach.
 /// ''' </summary>
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -201,7 +200,7 @@ public class Player : IEnumerable<Ship>
     ///     ''' has.
     ///     ''' </summary>
     ///     ''' <returns>A Ship enumerator</returns>
-    public IEnumerator/*<Ship>*/ GetEnumerator()
+    public IEnumerator<Ship> GetEnumerator()
     {
         Ship[] result = new Ship[_Ships.Values.Count + 1];
         _Ships.Values.CopyTo(result, 0);
@@ -210,6 +209,22 @@ public class Player : IEnumerable<Ship>
 
         return lst.GetEnumerator();
     }
+
+    System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+    {
+        Ship[] result = new Ship[_Ships.Values.Count + 1];
+        _Ships.Values.CopyTo(result, 0);
+        List<Ship> lst = new List<Ship>();
+        lst.AddRange(result);
+
+        return lst.GetEnumerator();
+    }
+
+    /*IEnumerator<Ship> GetEnumerator()
+    {
+        // return this.GetEnumerator();
+        return null;
+    }*/
 
     /// <summary>
     ///     ''' Vitual Attack allows the player to shoot
@@ -234,18 +249,18 @@ public class Player : IEnumerable<Ship>
 
         switch (result.Value)
         {
-            case object _ when ResultOfAttack.Destroyed:
-            case object _ when ResultOfAttack.Hit:
-                {
-                    _hits += 1;
-                    break;
-                }
+            case ResultOfAttack.Destroyed:
+            case ResultOfAttack.Hit:
+            {
+                _hits += 1;
+                break;
+            }
 
-            case object _ when ResultOfAttack.Miss:
-                {
-                    _misses += 1;
-                    break;
-                }
+            case ResultOfAttack.Miss:
+            {
+                _misses += 1;
+                break;
+            }
         }
 
         return result;
@@ -290,3 +305,4 @@ public class Player : IEnumerable<Ship>
         }
     }
 }
+
