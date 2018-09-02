@@ -49,6 +49,10 @@ static class UtilityFunctions
     public const int ANIMATION_CELLS = 7;
     public const int FRAMES_PER_CELL = 8;
 
+    // Variable declared to keep the compiler happy. See comments below regarding added methods
+    // for further details.
+    public static GameState CurrentState;
+
     /// <summary>
     ///     ''' Determines if the mouse is in a given rectangle.
     ///     ''' </summary>
@@ -352,5 +356,24 @@ static class UtilityFunctions
             UpdateAnimations();
             DrawScreen();
         }
+    }
+
+
+    // The following are methods declared to keep the compiler happy; I have no idea if we're supposed
+    // to declare and implement them, or if they come as part of a library or something else. The internet
+    // and the VB code are of little help here. The same goes for the variable CurrentState above.
+    public static void DrawScreen()
+    {
+
+    }
+
+    public static Bitmap GameImage(string image)
+    {
+        return null;
+    }
+
+    public static Font GameFont(string font)
+    {
+        return null;
     }
 }

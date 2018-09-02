@@ -59,7 +59,8 @@ public class SeaGrid : ISeaGrid
     {
         get
         {
-            return null;
+            _GameTiles(x, y).View;
+            //return null;
             //return this[int x, int y];    //Fix at some point? Just putting this here to satisfy the terminal
         }
     }
