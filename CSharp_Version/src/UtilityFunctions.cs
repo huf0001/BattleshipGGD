@@ -138,7 +138,7 @@ static class UtilityFunctions
             {
                 colLeft = left + (cellGap + cellWidth) * col;
 
-                Color fillColor;
+                Color fillColor = null;
                 bool draw;
 
                 draw = true;
@@ -217,7 +217,7 @@ static class UtilityFunctions
             }
 
             if (!small)
-                SwinGame.DrawBitmap(GameImage(shipName), colLeft, rowTop);
+                SwinGame.DrawBitmap(GameResources.GameImage(shipName), colLeft, rowTop);
                 // SwinGame.DrawBitmap(shipName, colLeft, rowTop);
             else
             {
@@ -251,7 +251,7 @@ static class UtilityFunctions
     ///     ''' </summary>
     public static void DrawMessage()
     {
-        SwinGame.DrawText(Message, MESSAGE_COLOR, GameFont("Courier"), FIELD_LEFT, MESSAGE_TOP);
+        SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), FIELD_LEFT, MESSAGE_TOP);
     }
 
     /// <summary>
@@ -259,27 +259,27 @@ static class UtilityFunctions
     ///     ''' </summary>
     public static void DrawBackground()
     {
-        switch (CurrentState)
+        switch (GameController.CurrentState)
         {
             case GameState.ViewingMainMenu:
             case GameState.ViewingGameMenu:
             case GameState.AlteringSettings:
             case GameState.ViewingHighScores:
             {
-                SwinGame.DrawBitmap(GameImage("Menu"), 0, 0);
+                SwinGame.DrawBitmap(GameResources.GameImage("Menu"), 0, 0);
                 break;
             }
 
             case GameState.Discovering:
             case GameState.EndingGame:
             {
-                SwinGame.DrawBitmap(GameImage("Discovery"), 0, 0);
+                SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
                 break;
             }
 
             case GameState.Deploying:
             {
-                SwinGame.DrawBitmap(GameImage("Deploy"), 0, 0);
+                SwinGame.DrawBitmap(GameResources.GameImage("Deploy"), 0, 0);
                 break;
             }
 
@@ -310,7 +310,7 @@ static class UtilityFunctions
         Sprite s;
         Bitmap imgObj;
 
-        imgObj = GameImage(image);
+        imgObj = GameResources.GameImage(image);
         imgObj.SetCellDetails(40, 40, 3, 3, 7);
 
         AnimationScript animation;
@@ -353,26 +353,7 @@ static class UtilityFunctions
         for (i = 1; i <= ANIMATION_CELLS * FRAMES_PER_CELL; i++)
         {
             UpdateAnimations();
-            DrawScreen();
+            GameController.DrawScreen();
         }
     }
-
-
-    // The following are methods declared to keep the compiler happy; I have no idea if we're supposed
-    // to declare and implement them, or if they come as part of a library or something else. The internet
-    // and the VB code are of little help here. The same goes for the variable CurrentState above.
-    /*public static void DrawScreen()
-    {
-
-    }
-
-    public static Bitmap GameImage(string image)
-    {
-        return null;
-    }
-
-    public static Font GameFont(string font)
-    {
-        return null;
-    }*/
 }

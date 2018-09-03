@@ -12,30 +12,38 @@ using SwinGameSDK;
 // '' </remarks>
 public class SeaGrid : ISeaGrid
 {
-
     private const int _WIDTH = 10;
-
     private const int _HEIGHT = 10;
 
     private Dictionary<ShipName, Ship> _Ships;
-
+    private Tile[,] _GameTiles;
     private int _ShipsKilled = 0;
 
     public SeaGrid(Dictionary<ShipName, Ship> ships)
     {
         _Ships = ships;
+        _GameTiles = new Tile[Width, Height];
+
+        //fill array with empty Tiles
+        for (int i = 0; i < Width; i++)
+        {
+            for (int j = 0; j < Height; j++)
+            {
+                _GameTiles[i, j] = new Tile(i, j, null);
+            }
+        }
     }
 
-    // '' <summary>
-    // '' The sea grid has changed and should be redrawn.
-    // '' </summary>
+    /// <summary>
+    /// The sea grid has changed and should be redrawn.
+    /// </summary>
     public event EventHandler Changed;
 
-    // '' <summary>
-    // '' The width of the sea grid.
-    // '' </summary>
-    // '' <value>The width of the sea grid.</value>
-    // '' <returns>The width of the sea grid.</returns>
+    /// <summary>
+    /// The width of the sea grid.
+    /// </summary>
+    /// <value>The width of the sea grid.</value>
+    /// <returns>The width of the sea grid.</returns>
     public int Width
     {
         get
@@ -62,17 +70,15 @@ public class SeaGrid : ISeaGrid
 
     public TileView Item(int row, int col) 
     {
-
-        return _GameTiles(x, y).View;
+        return _GameTiles[row, col].View;
         // return null;
         // return this[int x, int y];    //Fix at some point? Just putting this here to satisfy the terminal
         //return this[row, col];
     }
-    
 
-    // '' <summary>
-    // '' AllDeployed checks if all the ships are deployed
-    // '' </summary>
+    /// <summary>
+    /// AllDeployed checks if all the ships are deployed
+    /// </summary>
     public bool AllDeployed
     {
         get
@@ -100,7 +106,7 @@ public class SeaGrid : ISeaGrid
             for (int j = 0; (j
                         <= (Height - 1)); j++)
             {
-                _GameTiles(i, j) = new Tile(i, j, null);
+                _GameTiles[i, j] = new Tile(i, j, null);
             }
 
         }
@@ -108,13 +114,13 @@ public class SeaGrid : ISeaGrid
         _Ships = ships;
     }
 
-    // '' <summary>
-    // '' MoveShips allows for ships to be placed on the seagrid
-    // '' </summary>
-    // '' <param name="row">the row selected</param>
-    // '' <param name="col">the column selected</param>
-    // '' <param name="ship">the ship selected</param>
-    // '' <param name="direction">the direction the ship is going</param>
+    /// <summary>
+    /// MoveShips allows for ships to be placed on the seagrid
+    /// </summary>
+    /// <param name="row">the row selected</param>
+    /// <param name="col">the column selected</param>
+    /// <param name="ship">the ship selected</param>
+    /// <param name="direction">the direction the ship is going</param>
     public void MoveShip(int row, int col, ShipName ship, Direction direction)
     {
         Ship newShip = _Ships[ship];
@@ -122,13 +128,13 @@ public class SeaGrid : ISeaGrid
         AddShip(row, col, direction, newShip);
     }
 
-    // '' <summary>
-    // '' AddShip add a ship to the SeaGrid
-    // '' </summary>
-    // '' <param name="row">row coordinate</param>
-    // '' <param name="col">col coordinate</param>
-    // '' <param name="direction">direction of ship</param>
-    // '' <param name="newShip">the ship</param>
+    /// <summary>
+    /// AddShip add a ship to the SeaGrid
+    /// </summary>
+    /// <param name="row">row coordinate</param>
+    /// <param name="col">col coordinate</param>
+    /// <param name="direction">direction of ship</param>
+    /// <param name="newShip">the ship</param>
     private void AddShip(int row, int col, Direction direction, Ship newShip)
     {
         try
@@ -162,7 +168,7 @@ public class SeaGrid : ISeaGrid
                     throw new InvalidOperationException("Ship can\'t fit on the board");
                 }
 
-                _GameTiles(currentRow, currentCol).Ship = newShip;
+                _GameTiles[currentRow, currentCol].Ship = newShip;
                 currentCol = (currentCol + dCol);
                 currentRow = (currentRow + dRow);
             }
@@ -182,38 +188,38 @@ public class SeaGrid : ISeaGrid
 
     }
 
-    // '' <summary>
-    // '' HitTile hits a tile at a row/col, and whatever tile has been hit, a
-    // '' result will be displayed.
-    // '' </summary>
-    // '' <param name="row">the row at which is being shot</param>
-    // '' <param name="col">the cloumn at which is being shot</param>
-    // '' <returns>An attackresult (hit, miss, sunk, shotalready)</returns>
+    /// <summary>
+    /// HitTile hits a tile at a row/col, and whatever tile has been hit, a
+    /// result will be displayed.
+    /// </summary>
+    /// <param name="row">the row at which is being shot</param>
+    /// <param name="col">the cloumn at which is being shot</param>
+    /// <returns>An attackresult (hit, miss, sunk, shotalready)</returns>
     public AttackResult HitTile(int row, int col)
     {
         try
         {
             // tile is already hit
-            if (_GameTiles(row, col).Shot)
+            if (_GameTiles[row, col].Shot)
             {
                 return new AttackResult(ResultOfAttack.ShotAlready, ("have already attacked ["
                                 + (col + (","
                                 + (row + "]!")))), row, col);
             }
 
-            _GameTiles(row, col).Shoot();
+            _GameTiles[row, col].Shoot();
             // there is no ship on the tile
-            if ((_GameTiles(row, col).Ship == null))
+            if ((_GameTiles[row, col].Ship == null))
             {
                 return new AttackResult(ResultOfAttack.Miss, "missed", row, col);
             }
 
             // all ship's tiles have been destroyed
-            if (_GameTiles(row, col).Ship.IsDestroyed)
+            if (_GameTiles[row, col].Ship.IsDestroyed)
             {
-                _GameTiles(row, col).Shot = true;
+                _GameTiles[row, col].Shot = true;
                 _ShipsKilled++;
-                return new AttackResult(ResultOfAttack.Destroyed, _GameTiles(row, col).Ship, "destroyed the enemy\'s", row, col);
+                return new AttackResult(ResultOfAttack.Destroyed, _GameTiles[row, col].Ship, "destroyed the enemy\'s", row, col);
             }
 
             // else hit but not destroyed
