@@ -51,7 +51,7 @@ static class UtilityFunctions
 
     // Variable declared to keep the compiler happy. See comments below regarding added methods
     // for further details.
-    public static GameState CurrentState;
+    // public static GameState CurrentState;
 
     /// <summary>
     ///     ''' Determines if the mouse is in a given rectangle.
@@ -170,7 +170,6 @@ static class UtilityFunctions
                     }
 
                     case TileView.Sea:
-                    case TileView.Ship:
                     {
                         if (small)
                             fillColor = SMALL_SEA;
@@ -362,7 +361,7 @@ static class UtilityFunctions
     // The following are methods declared to keep the compiler happy; I have no idea if we're supposed
     // to declare and implement them, or if they come as part of a library or something else. The internet
     // and the VB code are of little help here. The same goes for the variable CurrentState above.
-    public static void DrawScreen()
+    /*public static void DrawScreen()
     {
 
     }
@@ -375,5 +374,5 @@ static class UtilityFunctions
     public static Font GameFont(string font)
     {
         return null;
-    }
+    }*/
 }

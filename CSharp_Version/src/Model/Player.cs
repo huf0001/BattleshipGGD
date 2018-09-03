@@ -19,7 +19,7 @@ public class Player : IEnumerable<Ship>
 {
     protected static Random _Random = new Random();
 
-    private Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
+    private static Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
     private SeaGrid _playerGrid = new SeaGrid(_Ships);
     private ISeaGrid _enemyGrid;
     protected BattleShipsGame _game;
@@ -131,7 +131,7 @@ public class Player : IEnumerable<Ship>
             if (name == ShipName.None)
                 return null/* TODO Change to default(_) if this is not a reference type */;
 
-            return _Ships.Item[name];
+            return _Ships[name];
         }
     }
 

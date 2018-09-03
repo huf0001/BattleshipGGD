@@ -136,23 +136,23 @@ public class AIHardPlayer : AIPlayer
             switch (_CurrentState)
             {
                 case AIStates.Searching:
-                    {
-                        SearchCoords(ref row, ref column);
-                        break;
-                    }
+                {
+                    SearchCoords(ref row, ref column);
+                    break;
+                }
 
                 case AIStates.TargetingShip:
                 case AIStates.HittingShip:
-                    {
-                        TargetCoords(ref row, ref column);
-                        break;
-                    }
+                {
+                    TargetCoords(ref row, ref column);
+                    break;
+                }
 
                 default:
-                    {
-                        throw new ApplicationException("AI has gone in an invalid state");
-                        break;
-                    }
+                {
+                    throw new ApplicationException("AI has gone in an invalid state");
+                    // break;
+                }
             }
         }
         while ((row < 0 || column < 0 || row >= EnemyGrid.Height || column >= EnemyGrid.Width || EnemyGrid.Item(row, column) != TileView.Sea)); // while inside the grid and not a sea tile do the search
@@ -218,7 +218,7 @@ public class AIHardPlayer : AIPlayer
             case ResultOfAttack.ShotAlready:
             {
                 throw new ApplicationException("Error in AI");
-                break;
+                // break;
             }
         }
 

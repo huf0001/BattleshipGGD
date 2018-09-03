@@ -21,6 +21,11 @@ public class SeaGrid : ISeaGrid
 
     private int _ShipsKilled = 0;
 
+    public SeaGrid(Dictionary<ShipName, Ship> ships)
+    {
+        _Ships = ships;
+    }
+
     // '' <summary>
     // '' The sea grid has changed and should be redrawn.
     // '' </summary>
@@ -55,14 +60,13 @@ public class SeaGrid : ISeaGrid
         }
     }
 
-    public TileView Item 
+    public TileView Item(int row, int col) 
     {
-        get
-        {
-            _GameTiles(x, y).View;
-            //return null;
-            //return this[int x, int y];    //Fix at some point? Just putting this here to satisfy the terminal
-        }
+
+        return _GameTiles(x, y).View;
+        // return null;
+        // return this[int x, int y];    //Fix at some point? Just putting this here to satisfy the terminal
+        //return this[row, col];
     }
     
 
@@ -134,7 +138,7 @@ public class SeaGrid : ISeaGrid
             int currentCol = col;
             int dRow;
             int dCol;
-            if ((direction == direction.LeftRight))
+            if ((direction == Direction.LeftRight))
             {
                 dRow = 0;
                 dCol = 1;

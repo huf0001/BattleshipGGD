@@ -178,9 +178,15 @@ public static class GameController
         isHuman = _theGame.Player == HumanPlayer;
 
         if (isHuman)
+        {
+            // What is message?
             Message = "You " + result.ToString();
+        }
         else
+        {
+            // What is message?
             Message = "The AI " + result.ToString();
+        }
 
         switch (result.Value)
         {
@@ -430,6 +436,8 @@ public static class GameController
     public static void AddNewState(GameState state)
     {
         _state.Push(state);
+        
+        // No idea what this line is supposed to be for...
         Message = "";
     }
 
