@@ -85,6 +85,11 @@ public class Ship
         }
     }
 
+    /// <summary>
+    ///     ''' The column location of the ship. Presumably the leftmost
+    ///     ''' in the case of multiple columns being occupied.
+    ///     ''' </summary>
+    ///     ''' <returns>The column occupied by the ship.</returns>
     public int Column
     {
         get
@@ -93,6 +98,11 @@ public class Ship
         }
     }
 
+    /// <summary>
+    ///     ''' The direction the ship is facing.
+    ///     ''' 0 if vertical, 1 if horizontal.
+    ///     ''' </summary>
+    ///     ''' <returns>Whether the ship is horizontal or vertical.</returns>
     public Direction Direction
     {
         get
@@ -129,6 +139,9 @@ public class Ship
         _tiles.Clear();
     }
 
+    /// <summary>
+    ///     ''' Adds a hit to the hit counter.
+    ///     ''' </summary>
     public void Hit()
     {
         _hitsTaken = _hitsTaken + 1;
@@ -146,6 +159,12 @@ public class Ship
         }
     }
 
+    /// <summary>
+    ///     ''' Tracks whether or not the ship is destroyed.
+    ///     ''' </summary>
+    ///     ''' <returns>A boolean denoting whether or not
+    ///     ''' the number of hits is equal to the ship size,
+    ///     ''' and therefore whether or not it is destroyed.</returns>
     public bool IsDestroyed
     {
         get

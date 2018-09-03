@@ -293,11 +293,23 @@ static class UtilityFunctions
         SwinGame.DrawFramerate(675, 585);
     }
 
+    /// <summary>
+    ///     ''' Adds an explosion effect to the
+    ///     ''' specified row and column.
+    ///     ''' </summary>
+    ///     ''' <param name="row">The row to place the explosion on.</param>
+    ///     ''' <param name="col">The column to place the explosion on.</param>
     public static void AddExplosion(int row, int col)
     {
         AddAnimation(row, col, "Splash");
     }
 
+    /// <summary>
+    ///     ''' Adds a splash effect to the
+    ///     ''' specified row and column.
+    ///     ''' </summary>
+    ///     ''' <param name="row">The row to place the splash on.</param>
+    ///     ''' <param name="col">The column to place the splash on.</param>
     public static void AddSplash(int row, int col)
     {
         AddAnimation(row, col, "Splash");
@@ -305,6 +317,15 @@ static class UtilityFunctions
 
     private static List<Sprite> _Animations = new List<Sprite>();
 
+    /// <summary>
+    ///     ''' Adds an animation to the
+    ///     ''' specified row and column.
+    ///     ''' </summary>
+    ///     ''' <param name="row">The row to place the animation on.</param>
+    ///     ''' <param name="col">The column to place the animation on.</param>
+    ///     ''' <param name="image">The name of the image to use for the animation.</param>
+    ///     ''' <value name="s">Sprite to be created and animated.</value>
+    ///     ''' <value name="imgObj">Game image to be used in s.</value>
     private static void AddAnimation(int row, int col, string image)
     {
         Sprite s;
@@ -324,6 +345,11 @@ static class UtilityFunctions
         _Animations.Add(s);
     }
 
+    /// <summary>
+    ///     ''' Updates each currently active animation
+    ///     ''' and deletes those that have finished.
+    ///     ''' </summary>
+    ///     ''' <value name="ended">List of finished animations to delete.</value>
     public static void UpdateAnimations()
     {
         List<Sprite> ended = new List<Sprite>();
@@ -341,12 +367,19 @@ static class UtilityFunctions
         }
     }
 
+    /// <summary>
+    ///     ''' Draws each currently active sprite.
+    ///     ''' </summary>
     public static void DrawAnimations()
     {
         foreach (Sprite s in _Animations)
             SwinGame.DrawSprite(s);
     }
 
+    /// <summary>
+    ///     ''' Calls UpdateAnimations for each frame
+    ///     ''' in each cell, then draws the screen.
+    ///     ''' </summary>
     public static void DrawAnimationSequence()
     {
         int i;

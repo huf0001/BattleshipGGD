@@ -108,6 +108,11 @@ public class Player : IEnumerable<Ship>
         }
     }
 
+    /// <summary>
+    ///     ''' Returns whether or not the ships of the player
+    ///     ''' have all been destroyed.
+    ///     ''' </summary>
+    ///     ''' <returns>Boolean denoting if all the player's ships are destroyed.</returns>
     public bool IsDestroyed
     {
         get
@@ -135,8 +140,8 @@ public class Player : IEnumerable<Ship>
     /// <summary>
     ///     ''' The number of shots the player has made
     ///     ''' </summary>
-    ///     ''' <value>shots taken</value>
-    ///     ''' <returns>teh number of shots taken</returns>
+    ///     ''' <value>Shots taken</value>
+    ///     ''' <returns>The number of shots taken</returns>
     public int Shots
     {
         get
@@ -145,6 +150,10 @@ public class Player : IEnumerable<Ship>
         }
     }
 
+    /// <summary>
+    ///     ''' Returns the total number of shots that hit a target.
+    ///     ''' </summary>
+    ///     ''' <returns>The number of shots that hit.</returns>
     public int Hits
     {
         get
@@ -166,6 +175,10 @@ public class Player : IEnumerable<Ship>
         }
     }
 
+    /// <summary>
+    ///     ''' Returns the current score of the player.
+    ///     ''' </summary>
+    ///     ''' <returns>The current score of the player.</returns>
     public int Score
     {
         get
@@ -263,12 +276,21 @@ public class Player : IEnumerable<Ship>
         return result;
     }
 
+    /// <summary>
+    ///     ''' Randomly places each ship belonging to the player.
+    ///     ''' </summary>
+    ///     ''' <value name='placementSuccessful'>Boolean used to loop until
+    ///     ''' ship has been properly placed.</value>
+    ///     ''' <value name="heading">Which direction the ship is pointing in.</value>
+    ///     ''' <value name="dir">0 if ship is vertical, 1 if horizontal.</value>
+    ///     ''' <value name="x">X position of ship.</value>
+    ///     ''' <value name="y">Y position of ship.</value>
     public virtual void RandomizeDeployment()
     {
         bool placementSuccessful;
         Direction heading;
 
-        // for each ship to deploy in shipist
+        // for each ship to deploy in ship list
         foreach (ShipName shipToPlace in Enum.GetValues(typeof(ShipName)))
         {
             if (shipToPlace == ShipName.None)
