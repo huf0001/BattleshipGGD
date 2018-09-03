@@ -14,6 +14,9 @@ using SwinGameSDK;
 
 public static class GameResources
 {
+	/// <summary>
+    ///     ''' Loads the game's required fonts.
+    ///     ''' </summary>
     private static void LoadFonts()
     {
         NewFont("ArialLarge", "arial.ttf", 80);
@@ -21,7 +24,12 @@ public static class GameResources
         NewFont("CourierSmall", "cour.ttf", 8);
         NewFont("Menu", "ffaccess.ttf", 8);
     }
-
+	
+	/// <summary>
+    ///     ''' Loads the game's required images.
+	///     ''' This includes backgrounds, buttons,
+	///     ''' ships, and visual effects.
+    ///     ''' </summary>
     private static void LoadImages()
     {
         // Backgrounds
@@ -49,6 +57,11 @@ public static class GameResources
         NewImage("Splash", "splash.png");
     }
 
+	/// <summary>
+    ///     ''' Loads the game's required sounds.
+	///     ''' Most of these are used in the
+	///     ''' gameplay state.
+    ///     ''' </summary>
     private static void LoadSounds()
     {
         NewSound("Error", "error.wav");
@@ -59,18 +72,20 @@ public static class GameResources
         NewSound("Winner", "winner.wav");
         NewSound("Lose", "lose.wav");
     }
-
+	
+	/// <summary>
+    ///     ''' Loads the game's required background music.
+    ///     ''' </summary>
     private static void LoadMusic()
     {
         NewMusic("Background", "horrordrone.mp3");
     }
 
     /// <summary>
-    ///     ''' Gets a Font Loaded in the Resources
+    ///     ''' Gets a font from those loaded in the resources.
     ///     ''' </summary>
     ///     ''' <param name="font">Name of Font</param>
     ///     ''' <returns>The Font Loaded with this Name</returns>
-
     public static Font GameFont(string font)
     {
         return _Fonts[font];
@@ -81,7 +96,6 @@ public static class GameResources
     ///     ''' </summary>
     ///     ''' <param name="image">Name of image</param>
     ///     ''' <returns>The image loaded with this name</returns>
-
     public static Bitmap GameImage(string image)
     {
         return _Images[image];
@@ -92,18 +106,16 @@ public static class GameResources
     ///     ''' </summary>
     ///     ''' <param name="sound">Name of sound</param>
     ///     ''' <returns>The sound with this name</returns>
-
     public static SoundEffect GameSound(string sound)
     {
         return _Sounds[sound];
     }
 
     /// <summary>
-    ///     ''' Gets the music loaded in the Resources
+    ///     ''' Gets the music loaded in the Resources.
     ///     ''' </summary>
     ///     ''' <param name="music">Name of music</param>
     ///     ''' <returns>The music with this name</returns>
-
     public static Music GameMusic(string music)
     {
         return _Music[music];
@@ -125,7 +137,6 @@ public static class GameResources
     ///     ''' The Resources Class stores all of the Games Media Resources, such as Images, Fonts
     ///     ''' Sounds, Music.
     ///     ''' </summary>
-
     public static void LoadResources()
     {
         int width, height;
@@ -159,6 +170,17 @@ public static class GameResources
         EndLoadingScreen(width, height);
     }
 
+    /// <summary>
+    ///     ''' Shows the game's loading screen.
+    ///     ''' Used during state transitions.
+    ///     ''' Includes fonts, backgrounds and sound effects.
+    ///     ''' </summary>
+    ///     ''' <value name="_Background">The background to display on the loading screen.</value>
+    ///     ''' <value name="_Animation">The animation to display on the loading screen.</value>
+    ///     ''' <value name="_LoadingFont">The font to use on the loading screen.</value>
+    ///     ''' <value name="_StartSound">The sound effect to play during the loading screen.</value>
+    ///     ''' <value name="_LoaderFull">The image to use when fully loaded.</value>
+    ///     ''' <value name="_LoaderEmpty">The image to use when 0% loaded.</value>
     private static void ShowLoadingScreen()
     {
         _Background = SwinGame.LoadBitmap(SwinGame.PathToResource("SplashBack.png", ResourceKind.BitmapResource));
@@ -176,6 +198,10 @@ public static class GameResources
         PlaySwinGameIntro();
     }
 
+    /// <summary>
+    ///     ''' Plays the SwinGame intro sequence.
+    ///     ''' </summary>
+    ///     ''' <value name="_ANI_CELL_COUNT">The number of cells to play the animation for.</value>
     private static void PlaySwinGameIntro()
     {
         const int ANI_CELL_COUNT = 11;
@@ -195,6 +221,21 @@ public static class GameResources
         SwinGame.Delay(1500);
     }
 
+    /// <summary>
+    ///     ''' Draws a string as a message
+    ///     ''' and shows it on screen.
+    ///     ''' </summary>
+    ///     ''' <param name="message">Message to be shown</param>
+    ///     ''' <param name="number">Unknown</param>
+    ///     ''' <value name="TX">X location to draw message at.</value>
+    ///     ''' <value name="TY">Y location to draw message at.</value>
+    ///     ''' <value name="TW">Width to draw message with.</value>
+    ///     ''' <value name="TH">Height to draw message with.</value>
+    ///     ''' <value name="STEPS">Number of steps to split loading screen graphic into.</value>
+    ///     ''' <value name="BG_X">X location to draw background at.</value>
+    ///     ''' <value name="BG_Y">Y location to draw background at.</value>
+    ///     ''' <value name="fullW">Full width of loading screen graphic.</value>
+    ///     ''' <value name="toDraw">Measurements of message box to draw.</value>
     private static void ShowMessage(string message, int number)
     {
         const int TX = 310;
@@ -224,6 +265,12 @@ public static class GameResources
         SwinGame.ProcessEvents();
     }
 
+	/// <summary>
+    ///     ''' Dictates what happens when
+	///     ''' a loading screen ends.
+    ///     ''' </summary>
+	///     ''' <param name="width">New screen width after loading screen.</param>
+    ///     ''' <param name="height">New screen height after loading screen.</param>
     private static void EndLoadingScreen(int width, int height)
     {
         SwinGame.ProcessEvents();
@@ -239,60 +286,113 @@ public static class GameResources
         SwinGame.ChangeScreenSize(width, height);
     }
 
+	/// <summary>
+    ///     ''' Loads a new font to use in the program.
+    ///     ''' </summary>
+	///     ''' <param name="fontName">Name of new font to be loaded.</param>
+	///     ''' <param name="filename">Name of file containing new font.</param>
+	///     ''' <param name="size">Size to use for new font.</param>
     private static void NewFont(string fontName, string filename, int size)
     {
         _Fonts.Add(fontName, SwinGame.LoadFont(SwinGame.PathToResource(filename, ResourceKind.FontResource), size));
     }
 
+	/// <summary>
+    ///     ''' Loads a new image to use in the program.
+    ///     ''' </summary>
+	///     ''' <param name="imageName">Name of new image to be loaded.</param>
+	///     ''' <param name="filename">Name of file containing new image.</param>
     private static void NewImage(string imageName, string filename)
     {
         _Images.Add(imageName, SwinGame.LoadBitmap(SwinGame.PathToResource(filename, ResourceKind.BitmapResource)));
     }
 
+	/// <summary>
+    ///     ''' Loads a new image to use in the program.
+	///     ''' Functions identically to NewImage currently.
+    ///     ''' </summary>
+	///     ''' <param name="imageName">Name of new image to be loaded.</param>
+	///     ''' <param name="filename">Name of file containing new image.</param>
+	///     ''' <param name="transColor">Holds a colour. Currently not used in function.</param>
     private static void NewTransparentColorImage(string imageName, string fileName, Color transColor)
     {
         _Images.Add(imageName, SwinGame.LoadBitmap(SwinGame.PathToResource(fileName, ResourceKind.BitmapResource)));
     }
 
+	/// <summary>
+    ///     ''' Calls NewTransparentColorImage.
+	///     ''' Presumably used to catch function calls
+	///     ''' regardless of English or American spelling.
+    ///     ''' </summary>
     private static void NewTransparentColourImage(string imageName, string fileName, Color transColor)
     {
         NewTransparentColorImage(imageName, fileName, transColor);
     }
 
+	/// <summary>
+    ///     ''' Loads a new sound to use in the program.
+    ///     ''' </summary>
+	///     ''' <param name="soundName">Name of new sound to be loaded.</param>
+	///     ''' <param name="filename">Name of file containing new sound.</param>
     private static void NewSound(string soundName, string filename)
     {
         _Sounds.Add(soundName, Audio.LoadSoundEffect(SwinGame.PathToResource(filename, ResourceKind.SoundResource)));
     }
 
+	/// <summary>
+    ///     ''' Loads a new music track to use in the program.
+    ///     ''' </summary>
+	///     ''' <param name="musicName">Name of new track to be loaded.</param>
+	///     ''' <param name="filename">Name of file containing new track.</param>
     private static void NewMusic(string musicName, string filename)
     {
         _Music.Add(musicName, Audio.LoadMusic(SwinGame.PathToResource(filename, ResourceKind.SoundResource)));
     }
 
+	/// <summary>
+    ///     ''' Calls FreeFont to free the
+	///     ''' resources used by each loaded font.
+    ///     ''' </summary>
     private static void FreeFonts()
     {
         foreach (Font f in _Fonts.Values)
             SwinGame.FreeFont(f);
     }
 
+	/// <summary>
+    ///     ''' Calls FreeBitmap to free the
+	///     ''' resources used by each loaded image.
+    ///     ''' </summary>
     private static void FreeImages()
     {
         foreach (Bitmap b in _Images.Values)
             SwinGame.FreeBitmap(b);
     }
 
+	/// <summary>
+    ///     ''' Calls FreeSoundEffect to free the
+	///     ''' resources used by each loaded sound effect.
+    ///     ''' </summary>
     private static void FreeSounds()
     {
         foreach (SoundEffect s in _Sounds.Values)
             Audio.FreeSoundEffect(s);
     }
 
+	/// <summary>
+    ///     ''' Calls FreeMusic to free the
+	///     ''' resources used by each loaded music track.
+    ///     ''' </summary>
     private static void FreeMusic()
     {
         foreach (Music m in _Music.Values)
             Audio.FreeMusic(m);
     }
 
+	/// <summary>
+    ///     ''' Calls the four previous functions
+	///     ''' to free the loaded resources.
+    ///     ''' </summary>
     public static void FreeResources()
     {
         FreeFonts();
