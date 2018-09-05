@@ -139,10 +139,14 @@ public static class GameResources
     ///     ''' </summary>
     public static void LoadResources()
     {
-        int width, height;
+        int width = 800;
+        int height = 600;
 
-        width = SwinGame.ScreenWidth();
-        height = SwinGame.ScreenHeight();
+        // TODO: crashes when run on Windows; ScreenWidth() and ScreenHeight()
+        // create an exceptions within SwinGame ("Unable to find an entry point
+        // named 'sg_WindowManager_ScreenWidth' in DLL 'sgsdk.dll'..."
+        width = System.Convert.ToInt32(SwinGame.ScreenWidth());
+        height = System.Convert.ToInt32(SwinGame.ScreenHeight());
 
         SwinGame.ChangeScreenSize(800, 600);
 
@@ -283,6 +287,7 @@ public static class GameResources
         SwinGame.FreeBitmap(_LoaderEmpty);
         SwinGame.FreeBitmap(_LoaderFull);
         Audio.FreeSoundEffect(_StartSound);
+
         SwinGame.ChangeScreenSize(width, height);
     }
 
