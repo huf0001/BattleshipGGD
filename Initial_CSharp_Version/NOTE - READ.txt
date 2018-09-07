@@ -1,9 +1,0 @@
-Tried to run this version once all the fixing of compile errors
-was done. That didn't go so well; there was a run error that 
-was complaining about no entry into the SwinGame library or
-something.
-
-Transferred code, image, and sound resources to a Visual
-Studio/Xamarin compatible project, builds just fine. Has an
-error or two relating to sound files, but we can worry about 
-that tomorrow or something, I've had enough for today.
