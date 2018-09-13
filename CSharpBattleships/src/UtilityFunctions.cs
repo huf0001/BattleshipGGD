@@ -18,7 +18,8 @@ using SwinGameSDK;
 
 static class UtilityFunctions
 {
-    public const int FIELD_TOP = 122;
+    // public const int FIELD_TOP = 122;
+    public const int FIELD_TOP = 0;
     public const int FIELD_LEFT = 349;
     public const int FIELD_WIDTH = 418;
     public const int FIELD_HEIGHT = 418;
