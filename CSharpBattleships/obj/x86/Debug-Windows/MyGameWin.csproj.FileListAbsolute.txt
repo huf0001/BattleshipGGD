@@ -142,3 +142,23 @@ C:\Users\Sam Huffer\Downloads\CSharpBattleships\bin\Debug\MyGame.pdb
 C:\Users\Sam Huffer\Downloads\CSharpBattleships\bin\Debug\SwinGame.dll
 C:\Users\Sam Huffer\Downloads\CSharpBattleships\obj\x86\Debug-Windows\MyGame.exe
 C:\Users\Sam Huffer\Downloads\CSharpBattleships\obj\x86\Debug-Windows\MyGame.pdb
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\Resources\images\FileDialog_Background.png
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\Resources\images\FileDialog_Inactive.png
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\Resources\images\FileDialog_Scroll.png
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\Resources\images\FileDialog_ScrollSmall.png
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\Resources\images\Swinburne.jpg
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\Resources\images\SwinGameAni.png
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\Resources\panels\FileDialog.txt
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\Resources\sounds\error.wav
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\Resources\sounds\SwinGameStart.wav
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\Resources\SwinGame.icns
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\Resources\SwinGame.ico
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\Resources\TestDrawing.txt
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\MyGame.exe
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\MyGame.pdb
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\bin\Debug\SwinGame.dll
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\obj\x86\Debug-Windows\MyGameWin.csproj.CoreCompileInputs.cache
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\obj\x86\Debug-Windows\MyGameWin.csproj.CopyComplete
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\obj\x86\Debug-Windows\MyGame.exe
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\obj\x86\Debug-Windows\MyGame.pdb
+C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\obj\x86\Debug-Windows\MyGameWin.csprojResolveAssemblyReference.cache
