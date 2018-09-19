@@ -274,7 +274,7 @@ public static class GameResources
         const int ANI_CELL_COUNT = 11;
 
         Audio.PlaySoundEffect(_StartSound);
-        SwinGame.Delay(200);
+        SwinGame.Delay(1200);
 
         int i;
         for (i = 0; i <= ANI_CELL_COUNT - 1; i++)
@@ -350,11 +350,11 @@ public static class GameResources
         SwinGame.FreeBitmap(_LoaderEmpty);
         SwinGame.FreeBitmap(_LoaderFull);
 
-// Throws AccessViolation exception, trying to read or write from protected memory.
-// Going to comment this out for now.
-// Note: already tried SwinGame.FreeSoundEffect(). That doesn't work either.
+        // Throws AccessViolation exception, trying to read or write from protected memory.
+        // Going to comment this out for now.
+        // Note: already tried SwinGame.FreeSoundEffect(). That doesn't work either.
 
-        // Audio.FreeSoundEffect(_StartSound);     
+        // Audio.FreeSoundEffect(_StartSound);
 
         SwinGame.ChangeScreenSize(width, height);
     }
@@ -400,7 +400,11 @@ public static class GameResources
     {
         foreach (SoundEffect s in _Sounds.Values)
         {
-            Audio.FreeSoundEffect(s);
+// Throws AccessViolation exception, trying to read or write from protected memory.
+// Going to comment this out for now.
+// Note: already tried SwinGame.FreeSoundEffect(). That doesn't work either.
+
+            // Audio.FreeSoundEffect(s);
         }
     }
 
