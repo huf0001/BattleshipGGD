@@ -85,7 +85,9 @@ public static class GameController
     public static void StartGame()
     {
         if (_theGame != null)
+        {
             EndGame();
+        }
 
         // Create the game
         _theGame = new BattleShipsGame();
@@ -107,7 +109,7 @@ public static class GameController
 
             default:
             {
-                _ai = new AIHardPlayer(_theGame);
+                _ai = new AIHardPlayer(_theGame);           // this line throws exceptions that freeze the game
                 break;
             }
         }

@@ -68,7 +68,7 @@ public class Player : IEnumerable<Ship>
                 _Ships.Add(name, new Ship(name));
         }
 
-        RandomizeDeployment();
+        RandomizeDeployment();          //Found this one throwing exceptions... 
     }
 
     /// <summary>
@@ -294,7 +294,9 @@ public class Player : IEnumerable<Ship>
         foreach (ShipName shipToPlace in Enum.GetValues(typeof(ShipName)))
         {
             if (shipToPlace == ShipName.None)
+            {
                 continue;
+            }
 
             placementSuccessful = false;
 
@@ -304,15 +306,20 @@ public class Player : IEnumerable<Ship>
                 int dir = _Random.Next(2);
                 int x = _Random.Next(0, 11);
                 int y = _Random.Next(0, 11);
+
                 if (dir == 0)
+                {
                     heading = Direction.UpDown;
+                }
                 else
+                {
                     heading = Direction.LeftRight;
+                }
 
                 // try to place ship, if position unplaceable, generate new coordinates
                 try
                 {
-                    PlayerGrid.MoveShip(x, y, shipToPlace, heading);
+                    PlayerGrid.MoveShip(x, y, shipToPlace, heading);            //Throws exception
                     placementSuccessful = true;
                 }
                 catch
