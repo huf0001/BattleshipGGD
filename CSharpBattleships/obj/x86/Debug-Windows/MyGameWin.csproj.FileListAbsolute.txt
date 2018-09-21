@@ -162,6 +162,7 @@ C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\obj\x86\Debug-Windows\M
 C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\obj\x86\Debug-Windows\MyGame.exe
 C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\obj\x86\Debug-Windows\MyGame.pdb
 C:\SWE20001_DP1\GeneralDP1GroupProject\CSharpBattleships\obj\x86\Debug-Windows\MyGameWin.csprojResolveAssemblyReference.cache
+<<<<<<< HEAD
 C:\Users\strol\Documents\SWE20001\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\images\FileDialog_Background.png
 C:\Users\strol\Documents\SWE20001\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\images\FileDialog_Inactive.png
 C:\Users\strol\Documents\SWE20001\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\images\FileDialog_Scroll.png
@@ -180,3 +181,25 @@ C:\Users\strol\Documents\SWE20001\BattleshipGGD\CSharpBattleships\bin\Debug\Swin
 C:\Users\strol\Documents\SWE20001\BattleshipGGD\CSharpBattleships\obj\x86\Debug-Windows\MyGameWin.csprojResolveAssemblyReference.cache
 C:\Users\strol\Documents\SWE20001\BattleshipGGD\CSharpBattleships\obj\x86\Debug-Windows\MyGame.exe
 C:\Users\strol\Documents\SWE20001\BattleshipGGD\CSharpBattleships\obj\x86\Debug-Windows\MyGame.pdb
+=======
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\images\FileDialog_Background.png
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\images\FileDialog_Inactive.png
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\images\FileDialog_Scroll.png
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\images\FileDialog_ScrollSmall.png
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\images\Swinburne.jpg
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\images\SwinGameAni.png
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\panels\FileDialog.txt
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\sounds\error.wav
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\sounds\SwinGameStart.wav
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\SwinGame.icns
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\SwinGame.ico
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\Resources\TestDrawing.txt
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\MyGame.exe
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\MyGame.pdb
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\bin\Debug\SwinGame.dll
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\obj\x86\Debug-Windows\MyGameWin.csprojAssemblyReference.cache
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\obj\x86\Debug-Windows\MyGameWin.csproj.CoreCompileInputs.cache
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\obj\x86\Debug-Windows\MyGameWin.csproj.CopyComplete
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\obj\x86\Debug-Windows\MyGame.exe
+C:\Users\birdcar\Documents\Development Project 1\BattleshipGGD\CSharpBattleships\obj\x86\Debug-Windows\MyGame.pdb
+>>>>>>> d224ce4fbc39643d6ccb7615dae94409644f149e

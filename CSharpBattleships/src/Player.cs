@@ -66,6 +66,7 @@ public class Player : IEnumerable<Ship>
         {
             if (name != ShipName.None)
             {
+                //If the ship name doesn't exist, add it to the dictionary.
                 if (!_Ships.ContainsKey(name))
                 {
                     _Ships.Add(name, new Ship(name));
@@ -73,7 +74,7 @@ public class Player : IEnumerable<Ship>
             }
         }
 
-        RandomizeDeployment();          //Found this one throwing exceptions... 
+        RandomizeDeployment();
     }
 
     /// <summary>
