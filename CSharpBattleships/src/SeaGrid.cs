@@ -37,7 +37,7 @@ public class SeaGrid : ISeaGrid
     /// <summary>
     /// The sea grid has changed and should be redrawn.
     /// </summary>
-    public event EventHandler Changed; //= new EventHandler;
+    public event EventHandler Changed;
 
     /// <summary>
     /// The width of the sea grid.
@@ -139,9 +139,10 @@ public class SeaGrid : ISeaGrid
             int size = newShip.Size;
             int currentRow = row;
             int currentCol = col;
-            int dRow;
-            int dCol;
-            if ((direction == Direction.LeftRight))
+            int dRow = 0;
+            int dCol = 0;
+
+            if (direction == Direction.LeftRight)
             {
                 dRow = 0;
                 dCol = 1;
@@ -152,35 +153,38 @@ public class SeaGrid : ISeaGrid
                 dCol = 0;
             }
 
-            // place ship's tiles in array and into ship object
-            for (int i = 0; i <= (size - 1); i++)
+            //place ship's tiles in array and into ship object
+            int i = 0;
+            for (i = 0; i <= size - 1; i++)
             {
-                if ((currentRow < 0) || (currentRow >= Width) || (currentCol < 0) || (currentCol >= Height))
+                if (currentRow < 0 | currentRow >= Width | currentCol < 0 | currentCol >= Height)
                 {
-                    throw new InvalidOperationException("Ship can\'t fit on the board");
+                    throw new InvalidOperationException("Ship can't fit on the board");
                 }
 
                 _GameTiles[currentRow, currentCol].Ship = newShip;
-                currentCol = (currentCol + dCol);
-                currentRow = (currentRow + dRow);
+
+                currentCol += dCol;
+                currentRow += dRow;
             }
 
             newShip.Deployed(direction, row, col);
-        }                                                   //Before the first exception, no exceptions are thrown above this point in the method AddShip()
+        }
         catch (Exception e)
         {
             newShip.Remove();
-            // if fails remove the ship
+            //if fails remove the ship
+
             throw new ApplicationException(e.Message);
+
         }
         finally
-        {                                               // Still no exception...
+        {
             if (Changed != null)
             {
                 Changed(this, EventArgs.Empty);
-            }// And the exception is thrown here. Why?
+            }
         }
-
     }
 
     /// <summary>
