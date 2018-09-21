@@ -65,7 +65,12 @@ public class Player : IEnumerable<Ship>
         foreach (ShipName name in Enum.GetValues(typeof(ShipName)))
         {
             if (name != ShipName.None)
-                _Ships.Add(name, new Ship(name));
+            {
+                if (!_Ships.ContainsKey(name))
+                {
+                    _Ships.Add(name, new Ship(name));
+                }
+            }
         }
 
         RandomizeDeployment();          //Found this one throwing exceptions... 

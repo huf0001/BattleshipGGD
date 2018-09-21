@@ -37,7 +37,7 @@ public class SeaGrid : ISeaGrid
     /// <summary>
     /// The sea grid has changed and should be redrawn.
     /// </summary>
-    public event EventHandler Changed;
+    public event EventHandler Changed; //= new EventHandler;
 
     /// <summary>
     /// The width of the sea grid.
@@ -71,9 +71,6 @@ public class SeaGrid : ISeaGrid
     public TileView Item(int row, int col) 
     {
         return _GameTiles[row, col].View;
-        // return null;
-        // return this[int x, int y];    //Fix at some point? Just putting this here to satisfy the terminal
-        //return this[row, col];
     }
 
     /// <summary>
@@ -178,7 +175,10 @@ public class SeaGrid : ISeaGrid
         }
         finally
         {                                               // Still no exception...
-            Changed(this, EventArgs.Empty);             // And the exception is thrown here. Why?
+            if (Changed != null)
+            {
+                Changed(this, EventArgs.Empty);
+            }// And the exception is thrown here. Why?
         }
 
     }
