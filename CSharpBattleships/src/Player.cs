@@ -259,7 +259,6 @@ public class Player : IEnumerable<Ship>
     ///     ''' <returns>the result of the attack</returns>
     internal AttackResult Shoot(int row, int col)
     {
-        _shots += 1;
         AttackResult result;
         result = EnemyGrid.HitTile(row, col);
 
@@ -278,6 +277,8 @@ public class Player : IEnumerable<Ship>
                 break;
             }
         }
+
+        _shots = _hits + _misses;
 
         return result;
     }
