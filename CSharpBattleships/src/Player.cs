@@ -65,10 +65,14 @@ public class Player : IEnumerable<Ship>
         foreach (ShipName name in Enum.GetValues(typeof(ShipName)))
         {
             if (name != ShipName.None)
-                _Ships.Add(name, new Ship(name));
+                //If the ship name doesn't exist, add it to the dictionary.
+                if (!_Ships.ContainsKey(name))
+                {
+                    _Ships.Add(name, new Ship(name));
+                }
         }
 
-        RandomizeDeployment();          //Found this one throwing exceptions... 
+        RandomizeDeployment();
     }
 
     /// <summary>
