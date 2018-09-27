@@ -28,35 +28,6 @@ public class Player : IEnumerable<Ship>
     private int _hits;
     private int _misses;
 
-    /// <summary>
-    ///     ''' Returns the game that the player is part of.
-    ///     ''' </summary>
-    ///     ''' <value>The game</value>
-    ///     ''' <returns>The game that the player is playing</returns>
-    public BattleShipsGame Game
-    {
-        get
-        {
-            return _game;
-        }
-        set
-        {
-            _game = value;
-        }
-    }
-
-    /// <summary>
-    ///     ''' Sets the grid of the enemy player
-    ///     ''' </summary>
-    ///     ''' <value>The enemy's sea grid</value>
-    public ISeaGrid Enemy
-    {
-        set
-        {
-            _enemyGrid = value;
-        }
-    }
-
     public Player(BattleShipsGame controller)
     {
         _game = controller;
@@ -75,6 +46,23 @@ public class Player : IEnumerable<Ship>
         }
 
         RandomizeDeployment();
+    }
+
+    /// <summary>
+    ///     ''' Returns the game that the player is part of.
+    ///     ''' </summary>
+    ///     ''' <value>The game</value>
+    ///     ''' <returns>The game that the player is playing</returns>
+    public BattleShipsGame Game
+    {
+        get
+        {
+            return _game;
+        }
+        set
+        {
+            _game = value;
+        }
     }
 
     /// <summary>

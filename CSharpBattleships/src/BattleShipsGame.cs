@@ -77,8 +77,8 @@ public class BattleShipsGame
     ///     ''' </summary>
     private void CompleteDeployment()
     {
-        _players[0].Enemy = new SeaGridAdapter(_players[1].PlayerGrid);//by this point, _players[1].PlayerGrid has no ships in the _GameTiles array
-        _players[1].Enemy = new SeaGridAdapter(_players[0].PlayerGrid);
+        _players[0].EnemyGrid = new SeaGridAdapter(_players[1].PlayerGrid);
+        _players[1].EnemyGrid = new SeaGridAdapter(_players[0].PlayerGrid);
     }
 
     /// <summary>

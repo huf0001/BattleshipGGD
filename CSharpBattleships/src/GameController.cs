@@ -114,7 +114,7 @@ public static class GameController
             }
         }
 
-        _human = new Player(_theGame);      //This line erases the AI's player grid
+        _human = new Player(_theGame);
 
         // AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
         _ai.PlayerGrid.Changed += GridChanged;
