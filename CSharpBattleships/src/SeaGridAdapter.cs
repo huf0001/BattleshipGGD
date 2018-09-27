@@ -42,7 +42,6 @@ public class SeaGridAdapter : ISeaGrid
         }
     }
 
-
     /// <summary>
     ///     ''' Changes the discovery grid. Where there is a ship we will sea water
     ///     ''' </summary>

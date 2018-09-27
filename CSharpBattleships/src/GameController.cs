@@ -109,12 +109,12 @@ public static class GameController
 
             default:
             {
-                _ai = new AIHardPlayer(_theGame);           // this line throws exceptions that freeze the game
+                _ai = new AIMediumPlayer(_theGame);           
                 break;
             }
         }
 
-        _human = new Player(_theGame);
+        _human = new Player(_theGame);      //This line erases the AI's player grid
 
         // AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
         _ai.PlayerGrid.Changed += GridChanged;

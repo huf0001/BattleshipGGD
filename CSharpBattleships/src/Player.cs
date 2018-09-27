@@ -236,12 +236,6 @@ public class Player : IEnumerable<Ship>
         return lst.GetEnumerator();
     }
 
-    /*IEnumerator<Ship> GetEnumerator()
-    {
-        // return this.GetEnumerator();
-        return null;
-    }*/
-
     /// <summary>
     ///     ''' Vitual Attack allows the player to shoot
     ///     ''' </summary>

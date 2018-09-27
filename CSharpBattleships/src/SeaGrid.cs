@@ -93,24 +93,6 @@ public class SeaGrid : ISeaGrid
         }
     }
 
-    public void DummyClass(Dictionary<ShipName, Ship> ships)
-    {
-        // fill array with empty Tiles
-        int i;
-        for (i = 0; (i
-                    <= (Width - 1)); i++)
-        {
-            for (int j = 0; (j
-                        <= (Height - 1)); j++)
-            {
-                _GameTiles[i, j] = new Tile(i, j, null);
-            }
-
-        }
-
-        _Ships = ships;
-    }
-
     /// <summary>
     /// MoveShips allows for ships to be placed on the seagrid
     /// </summary>
@@ -207,6 +189,7 @@ public class SeaGrid : ISeaGrid
             }
 
             _GameTiles[row, col].Shoot();
+
             // there is no ship on the tile
             if ((_GameTiles[row, col].Ship == null))
             {
