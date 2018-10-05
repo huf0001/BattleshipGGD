@@ -262,7 +262,7 @@ public static class GameController
     ///     ''' </remarks>
     public static void Attack(int row, int col)
     {
-        AttackResult result;
+        AttackResult result = default(AttackResult);
         result = _theGame.Shoot(row, col);
         CheckAttackResult(result);
     }
@@ -275,7 +275,7 @@ public static class GameController
     ///     ''' </remarks>
     private static void AIAttack()
     {
-        AttackResult result;
+        AttackResult result = default(AttackResult);
         result = _theGame.Player.Attack();
         CheckAttackResult(result);
     }
@@ -294,7 +294,11 @@ public static class GameController
         {
             case ResultOfAttack.Miss:
             {
-                if (_theGame.Player == ComputerPlayer)
+                //if (_theGame.Player == ComputerPlayer)
+                //    AIAttack();
+                //break;
+
+                if (object.ReferenceEquals(_theGame.Player, ComputerPlayer))
                     AIAttack();
                 break;
             }

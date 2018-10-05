@@ -96,28 +96,28 @@ public abstract class AIPlayer : Player
             return ReferenceEquals(@this, null) || ReferenceEquals(other, null) || @this.Row != other.Row || @this.Column != other.Column;
         }
 
-        public override bool Equals(Object other)
-        {
-            if (other != null)
-            {
-                Location temp = other as Location;
+        //public override bool Equals(Object other)
+        //{
+        //    if (other != null)
+        //    {
+        //        Location temp = other as Location;
 
-                if (temp != null)
-                { 
-                    if ((Row == temp.Row) && (Column == temp.Column))
-                    {
-                        return true; 
-                    }
-                }
-            }
+        //        if (temp != null)
+        //        { 
+        //            if ((Row == temp.Row) && (Column == temp.Column))
+        //            {
+        //                return true; 
+        //            }
+        //        }
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        //public override int GetHashCode()
+        //{
+        //    return base.GetHashCode();
+        //}
     }
 
     public AIPlayer(BattleShipsGame game) : base(game)
@@ -174,7 +174,7 @@ public abstract class AIPlayer : Player
             if (SwinGame.WindowCloseRequested())
                 return;
 
-            SwinGame.Delay(5);
+            SwinGame.Delay(2);
             SwinGame.ProcessEvents();
             SwinGame.RefreshScreen();
         }

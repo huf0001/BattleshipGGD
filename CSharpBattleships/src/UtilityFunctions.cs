@@ -126,8 +126,8 @@ static class UtilityFunctions
     {
         // SwinGame.FillRectangle(Color.Blue, left, top, width, height)
 
-        int rowTop;
-        int colLeft;
+        int rowTop = 0;
+        int colLeft = 0;
 
         // Draw the grid
         for (int row = 0; row <= 9; row++)
@@ -138,12 +138,12 @@ static class UtilityFunctions
             {
                 colLeft = left + (cellGap + cellWidth) * col;
 
-                Color fillColor = null;
-                bool draw;
+                Color fillColor = default(Color);
+                bool draw = false;
 
                 draw = true;
 
-                switch (grid.Item(row, col))
+                switch (grid[row, col])
                 {
                     case TileView.Ship:
                     {

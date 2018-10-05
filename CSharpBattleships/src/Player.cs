@@ -19,8 +19,8 @@ public class Player : IEnumerable<Ship>
 {
     protected static Random _Random = new Random();
 
-    private static Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
-    private SeaGrid _playerGrid = new SeaGrid(_Ships);
+    private Dictionary<ShipName, Ship> _Ships = new Dictionary<ShipName, Ship>();
+    private SeaGrid _playerGrid;
     private ISeaGrid _enemyGrid;
     protected BattleShipsGame _game;
 
@@ -31,6 +31,7 @@ public class Player : IEnumerable<Ship>
     public Player(BattleShipsGame controller)
     {
         _game = controller;
+        _playerGrid = new SeaGrid(_Ships);
 
         // for each ship add the ships name so the seagrid knows about them
         foreach (ShipName name in Enum.GetValues(typeof(ShipName)))
@@ -261,7 +262,6 @@ public class Player : IEnumerable<Ship>
         }
 
         _shots = _hits + _misses;
-
         return result;
     }
 
@@ -276,8 +276,8 @@ public class Player : IEnumerable<Ship>
     ///     ''' <value name="y">Y position of ship.</value>
     public virtual void RandomizeDeployment()
     {
-        bool placementSuccessful;
-        Direction heading;
+        bool placementSuccessful = false;
+        Direction heading = default(Direction);
 
         // for each ship to deploy in ship list
         foreach (ShipName shipToPlace in Enum.GetValues(typeof(ShipName)))
